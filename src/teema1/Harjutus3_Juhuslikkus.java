@@ -22,5 +22,6 @@ package teema1;
 public class Harjutus3_Juhuslikkus {
     public static void main(String[] args) {
 
+
     }
 }
