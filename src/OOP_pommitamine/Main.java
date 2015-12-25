@@ -1,6 +1,6 @@
 package OOP_pommitamine;
 
-/**
+/** konsoolis
  * Created by Kaia on 21.11.2015.
  */
 public class Main {
