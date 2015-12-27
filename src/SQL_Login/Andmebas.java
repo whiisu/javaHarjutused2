@@ -1,6 +1,7 @@
 package SQL_Login;
 
 import java.sql.*;
+import java.util.HashMap;
 
 /**
  * Created by Kaia on 26.12.2015.
@@ -8,6 +9,7 @@ import java.sql.*;
 public class Andmebas {
     Connection conn = null;
 
+    // Constructor, ehk meetod mis käivitub kohe objekti välja kutsumisel
     public Andmebas(){
         looYhendus();
         looTabel();
@@ -72,4 +74,56 @@ public class Andmebas {
         System.out.println("Ühendus suletud");
     }
 
+    public HashMap getUser(String kasutajanimi) {
+        HashMap andmed = new HashMap();
+        try {
+            Statement stat = conn.createStatement();
+            String sql = "SELECT * FROM USERS WHERE USERNAME = '\" + kasutajanimi + \"' LIMIT 1;";
+            // LIMIT piirab tulemuste arvu.
+            ResultSet rs = stat.executeQuery(sql);
+            // Kui stat.executeQuery() toob tagasi tühja tulemuse, siis rs'i kasutada ei saa.
+            // Kui oleks mitu rida andmeid, peaks tsükliga lahendama while (rs.next()) {}
+            // Nopin käsitsi andmed ühelt realt välja
+            andmed.put("username", rs.getString("username"));
+            andmed.put("password", rs.getString("password"));
+            andmed.put("fullname", rs.getString("fullname"));
+            andmed.put("number", rs.getString("number"));
+            andmed.put("address", rs.getString("address"));
+
+            rs.close();
+            stat.close();
+            return andmed;
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.exit(0);
+        }
+        return andmed;
+    }
+
+    public void uuendaKasutajaAndmeid(HashMap<String, String> andmed) {
+        String username = andmed.get("username");
+        String password = andmed.get("password");
+        String fullname = andmed.get("fullname");
+        String number = andmed.get("number");
+        String address = andmed.get("address");
+
+        try {
+            Statement stat = conn.createStatement();
+            // Andmete uuendamise käsi on UPDATE. SET ütleb, et nüüd tulevad need uued andmed sisse. WHERE ütleb mis ridu uuendada.
+            String sql = String.format("UPDATE USERS SET USERNAME = '%s', PASSWORD = '%s', FULLNAME = '%s', NUMBER = '%s', " +
+                    "ADDRESS = '%s' WHERE USERNAME = '%s';", username, password, fullname, number, address, username);
+            stat.executeUpdate(sql);
+            stat.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+
+    public void registreeriKasutaja(String username, String password) {
+        // Andmete sisestamiseks on käsk INSERT. Esimestes sulgudes on tulabad KUHU salvestada,
+        // teistes sulgudes VALUES() on MIDA salvestada.
+        String sql ="INSERT INTO USERS (USERNAME, PASSWORD) VALUES ('\"+username+\"','\"+password+\"')";
+        teostaAndmebaasiMuudatus(sql);
+    }
 }

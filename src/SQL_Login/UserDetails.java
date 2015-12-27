@@ -2,6 +2,7 @@ package SQL_Login;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.TilePane;
@@ -22,8 +23,19 @@ public class UserDetails {
     public UserDetails(String kasutajaSisse){
         kasutajanimi = kasutajaSisse;
         setupStage();
-        //setupUpdate();
-        //setupLogout();
+        setupUpdate();
+        setupLogout();
+    }
+
+    private void setupLogout() {
+        logoutButton.setOnAction(event -> {
+            stage.close();
+            new LoginScreen();
+        });
+    }
+
+    private void setupUpdate() {
+
     }
 
     private void setupStage() {

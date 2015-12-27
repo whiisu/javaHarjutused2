@@ -21,9 +21,8 @@ public class LoginScreen {
     LoginScreen() {
         setupScene();
         setupLogin();
-        //setupRegister();
+        setupRegister();
     }
-
     private void setupScene() {
         VBox vbox = new VBox();
         Scene scene = new Scene(vbox);
@@ -52,5 +51,13 @@ public class LoginScreen {
             }
         });
     }
-
+    private void setupRegister() {
+        registerButton.setOnAction(event -> {
+            String nimi = kasutajanimi.getText();
+            String p = parool.getText();
+            Andmebas a = new Andmebas();
+            a.registreeriKasutaja(nimi, p);
+            a.sulgeYhendus();
+        });
+    }
 }
