@@ -53,7 +53,7 @@ public class Andmebas {
             // Kui Query andmeid ei tagastanud (päring ei toonud tulemusi) siis rs-i kasutada ei saa.
             // Seepärast, kui kasutajat ei eksisteeri tuleb lihtsalt error ja "return" käsuni ei jõutagi.
             // Aga jõutakse lõpu "return false" käsuni küll.
-            String dbPassword = rs.getString("password");
+            String dbPassword = rs.getString("PASSWORD");
             rs.close();
             stat.close();
             return  password.equals(dbPassword);

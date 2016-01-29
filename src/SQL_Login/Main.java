@@ -26,6 +26,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Andmebas a = new Andmebas();
+        //a.seadistaTabel();
         new LoginScreen(); //käivitame login akna
     }
 }

@@ -45,7 +45,7 @@ public class Andmebaas {
             ResultSet tulemus = stat.executeQuery(sql); // ta on eraldi süsteem väljade küsimiseks
 
             String username = tulemus.getString("USERNAME");
-            //System.out.println(username); //kontrolliks
+            System.out.println(username); //kontrolliks
 
             tulemus.close();
             stat.close();
