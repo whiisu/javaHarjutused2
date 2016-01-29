@@ -1,7 +1,7 @@
 package Proovieksam;
 
 /**
- * kerstima
+ * kerstima, Prindi konsooli 9x9 maatriks sudoku numbritega.
  */
 public class Maatriks5 {
     public static void main(String[] args ){
@@ -15,10 +15,11 @@ public class Maatriks5 {
                 k=1;
                 subGrid++;
                 fillCount=subGrid;
-            }else{
+            }else {
                 k++;
-                if(i!=0)
-                    fillCount=fillCount+N;
+                if (i != 0){
+                    fillCount = fillCount + N;
+                }
             }
             for(int j=0;j<N*N;j++){
                 if(fillCount==N*N){
