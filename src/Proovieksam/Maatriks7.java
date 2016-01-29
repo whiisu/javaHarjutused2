@@ -2,6 +2,35 @@ package Proovieksam;
 
 /**
  * KerstiM, siksak
+ * * Prindi konsooli 10x100 maatriks, kus läheb joon sikk-sakk ülevalt alla.
+ *
+ * Näide:
+ * x
+ *  x
+ *   x
+ *    x
+ *     x
+ *      x
+ *       x
+ *        x
+ *         x
+ *          x
+ *         x
+ *        x
+ *       x
+ *      x
+ *     x
+ *    x
+ *   x
+ *  x
+ * x
+ *  x
+ *   x
+ *    x
+ *     x
+ *      jne.
+ *
+ * Kasuta mis iganes tähiseid soovid ülesande lahendamiseks.
  */
 public class Maatriks7 {
     public static void main(String[] args) {

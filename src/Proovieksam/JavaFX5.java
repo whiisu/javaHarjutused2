@@ -8,7 +8,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
- * Created by Kaia on 29.01.2016.
+ * ringi diameetri muutmine
  */
 public class JavaFX5 extends Application {
     @Override
