@@ -19,7 +19,7 @@ public class Harjutus2_ringid extends Application{
     public void start(Stage primaryStage) throws Exception {
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> System.exit(0));
-        Pane pane= new Pane();
+        Pane pane = new Pane();
 
         joonistaKast(pane);
         joonistaRing(pane);
